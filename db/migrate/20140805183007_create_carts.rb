@@ -4,6 +4,7 @@ class CreateCarts < ActiveRecord::Migration
       t.integer :category_id
       t.integer :item_id
       t.integer :line_item_id
+      t.integer :user_id
     end
     
   end

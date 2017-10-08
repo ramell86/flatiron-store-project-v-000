@@ -1,3 +1,12 @@
+
+
+  user = User.new
+    user.email = "andrew@gmail.com"
+    user.password = 'testpassword'
+    user.password_confirmation = 'testpassword'
+    user.save!
+  
+
 10.times do 
   Item.create(
     title: Faker::Commerce.product_name, 
