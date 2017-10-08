@@ -2,6 +2,10 @@ class Cart < ActiveRecord::Base
     has_many :line_items
     has_many :items, through: :line_items
 
+    def self.line_items
+        binding.pry
+        
+    end
     def add_item(item)
         binding.pry
         new_line_item = Line_item.new(item)
