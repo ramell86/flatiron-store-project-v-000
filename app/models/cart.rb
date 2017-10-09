@@ -7,8 +7,14 @@ class Cart < ActiveRecord::Base
     
     def add_item(item_id)
         @item = Item.find_by(:id => item_id)
-        new_line_item = @item.line_items.new
-        # self.line_items.push(new_line_item)
+        line_item = self.line_items.find_by(:item_id => @item.id)
+        if line_item
+            line_item.quantity += 1
+        else
+           line_item = @item.line_items.build(:cart_id => self.id)
+        #    self.line_items.push(line_item)
+        end
+        line_item
     end
     
     def total
