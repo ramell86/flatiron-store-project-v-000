@@ -4,14 +4,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :carts
+  belongs_to :current_cart, :class_name => "Cart"
     
 
   # binding.pry
+
   def current_cart
-  end
-  def current_cart=(cart)
-    user = User.find_by(:id => cart.user_id)
-      user.carts.create
+    
+    new_cart = self.carts.create
+
   end
 
 
