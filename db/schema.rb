@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20171008201612) do
     t.integer "item_id"
     t.integer "line_item_id"
     t.integer "user_id"
+    t.string  "status"
   end
 
   create_table "categories", force: :cascade do |t|
