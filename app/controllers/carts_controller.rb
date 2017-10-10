@@ -10,8 +10,7 @@ class CartsController < ApplicationController
       @cart = Cart.new
     end
     def show
-      binding.pry
-      @items = curren
+      
 
     end
 end

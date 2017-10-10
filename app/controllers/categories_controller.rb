@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-  before_action :authenticate_user!
   def index
     binding.pry
     @categories = Categories.all
@@ -11,7 +10,6 @@ class CategoriesController < ApplicationController
 
   end
   def show
-    binding.pry
     @category = Category.find_by(:id => params[:id])
     
   end
