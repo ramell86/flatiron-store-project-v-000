@@ -7,21 +7,31 @@ class Cart < ActiveRecord::Base
     
     def add_item(item_id)
         @item = Item.find_by(:id => item_id)
+        # binding.pry
         line_item = self.line_items.find_by(:item_id => @item.id)
+        
         if line_item
             line_item.quantity += 1
         else
            line_item = @item.line_items.build(:cart_id => self.id)
-        #    self.line_items.push(line_item)
         end
         line_item
+        
     end
     
     def total
         self.items.pluck(:price).inject(:+)
     end
-    def checkout
-        binding.pry
+    def proceed_to_checkout
+        self.status = "submitted"
+        update_inventory
+        
+    end
+    def update_inventory
+          self.line_items.each do |items|
+            items.item.inventory - items.quantity
+            items.item.save
+        end
     end
 
 end
