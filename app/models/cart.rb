@@ -20,5 +20,8 @@ class Cart < ActiveRecord::Base
     def total
         self.items.pluck(:price).inject(:+)
     end
+    def checkout
+        binding.pry
+    end
 
 end

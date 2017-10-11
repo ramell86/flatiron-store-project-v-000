@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   resources :orders, only: [:show]
   # get '/users/:id/carts/:id', to: 'carts#show', as: 'cart'
 
-  post 'carts/:id/checkout', to: 'carts#checkout', as: 'checkout'
+  post 'carts/:id', to: 'carts#checkout', as: 'checkout'
 
 end

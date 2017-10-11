@@ -11,5 +11,7 @@ class Item < ActiveRecord::Base
         #     i.title
         # end
     end
-
+    def adjust(amount)
+        update(inventory: inventory - amount)
+    end
 end
