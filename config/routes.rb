@@ -5,9 +5,10 @@ Rails.application.routes.draw do
 
   resources :items, only: [:show, :index]
   resources :categories, only: [:show, :index]
-  resources :users do 
-   resources :carts
-   end
+  resources :users 
+   resources :carts do 
+    resources :users 
+    end
   resources :line_items, only: [:create]
   resources :orders, only: [:show]
   # get '/users/:id/carts/:id', to: 'carts#show', as: 'cart'
