@@ -29,7 +29,7 @@ class Cart < ActiveRecord::Base
     end
     def update_inventory
           self.line_items.each do |items|
-            items.item.inventory - items.quantity
+            items.item.inventory -= items.quantity
             items.item.save
         end
     end
