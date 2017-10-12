@@ -6,7 +6,6 @@ class Item < ActiveRecord::Base
 
     def self.available_items
           where('inventory > ?', 0)
-        
         # self.all.reject{|t| t.inventory == 0}.each do |i|
         #     i.title
         # end

@@ -9,7 +9,7 @@
   <p><%= item.title %> | <%= (item.price.to_f) %> | <%= button_to 'Add to Cart', line_items_path(item_id: item) %></p>
     <% end %>
   <% else%>
-<% @items.each do |item| %>
+<% @a_items.each do |item| %>
   <p><%= item.title %> | $<%= (item.price.to_f) %></p>
     <% end %>
   <% end %>
