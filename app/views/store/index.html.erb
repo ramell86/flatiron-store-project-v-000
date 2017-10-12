@@ -1,7 +1,9 @@
 <% @categories.each do |category| %>
   <%= link_to category.title, category_path(category) %>
 <% end %>
-
+<% unless current_user.nil? || current_user.current_cart.nil?  %>
+  <%= link_to 'Cart', cart_path(current_user.current_cart) %>  
+  <% end %>
 <% if user_signed_in? %>
 <% @a_items.each do |item| %>
   <p><%= item.title %> | <%= (item.price.to_f) %> | <%= button_to 'Add to Cart', line_items_path(item_id: item) %></p>

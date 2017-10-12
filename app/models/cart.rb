@@ -28,6 +28,7 @@ class Cart < ActiveRecord::Base
     end
     def proceed_to_checkout
         self.status = "submitted"
+        self.save
         update_inventory
         
     end

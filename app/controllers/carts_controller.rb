@@ -3,7 +3,6 @@ class CartsController < ApplicationController
     include UsersHelper
     
     def show
-        # binding.pry
         @cart = Cart.find(params[:id])
     end
 

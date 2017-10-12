@@ -9,4 +9,4 @@
 <p>Order total: $<strong><%= (@cart.total.to_f) %></strong> </p>
 
 
-<%= button_to 'Checkout', cart_path(@cart) %>
+<%= button_to 'Checkout', cart_path(@cart) if @cart.status != "submitted"%>
