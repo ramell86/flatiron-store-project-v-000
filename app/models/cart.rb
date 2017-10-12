@@ -20,7 +20,11 @@ class Cart < ActiveRecord::Base
     end
     
     def total
-        self.items.pluck(:price).inject(:+)
+        total = 0
+        self.line_items.each do |line_item|
+        total += line_item.quantity * line_item.item.price 
+        end
+        return total        
     end
     def proceed_to_checkout
         self.status = "submitted"

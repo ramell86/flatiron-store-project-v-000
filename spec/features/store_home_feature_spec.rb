@@ -19,7 +19,8 @@ describe 'Feature Test: Store', :type => :feature do
             expect(page).to_not have_content item.title
           else
             expect(page).to have_content item.title
-            expect(page).to have_content "$#{item.price.to_f/100}"
+            # binding.pry
+            expect(page).to have_content "$#{item.price.to_f}"
           end
         end
       end
